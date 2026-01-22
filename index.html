@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我が家の家計簿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>我が家の家計簿</h1>
+    </header>
+
+    <main>
+        <section class="summary">
+            <div class="summary-item">
+                <h2>収入合計</h2>
+                <p id="total-income">0円</p>
+            </div>
+            <div class="summary-item">
+                <h2>支出合計</h2>
+                <p id="total-expense">0円</p>
+            </div>
+            <div class="summary-item">
+                <h2>残高</h2>
+                <p id="balance">0円</p>
+            </div>
+        </section>
+
+        <section class="transaction-form">
+            <h2>新しい取引を記録</h2>
+            <form id="add-form">
+                <div class="form-group">
+                    <label for="date">日付:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="member">家族:</label>
+                    <select id="member" required>
+                        <option value="父">父</option>
+                        <option value="母">母</option>
+                        <option value="子1">子1</option>
+                        <option value="子2">子2</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>タイプ:</label>
+                    <input type="radio" id="type-income" name="type" value="income" checked>
+                    <label for="type-income">収入</label>
+                    <input type="radio" id="type-expense" name="type" value="expense">
+                    <label for="type-expense">支出</label>
+                </div>
+                <div class="form-group">
+                    <label for="category">カテゴリ:</label>
+                    <input list="categories" id="category" name="category" required>
+                    <datalist id="categories">
+                        <option value="給料">
+                        <option value="食費">
+                        <option value="光熱費">
+                        <option value="通信費">
+                        <option value="家賃">
+                        <option value="日用品">
+                        <option value="交通費">
+                        <option value="趣味・娯楽">
+                        <option value="その他">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="description">内容:</label>
+                    <input type="text" id="description" placeholder="例: スーパーでの買い物" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">金額 (円):</label>
+                    <input type="number" id="amount" min="0" placeholder="例: 3000" required>
+                </div>
+                <button type="submit">記録する</button>
+            </form>
+        </section>
+
+        <section class="transactions">
+            <h2>取引履歴</h2>
+            <table id="transaction-table">
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>家族</th>
+                        <th>タイプ</th>
+                        <th>カテゴリ</th>
+                        <th>内容</th>
+                        <th>金額</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-list">
+                    <!-- ここに取引履歴が追加されます -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
